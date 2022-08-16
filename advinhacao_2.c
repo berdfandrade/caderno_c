@@ -100,9 +100,3 @@ int main() {
 
 
 }
-
-    // A Linguagem C não tem true ou false; o true ou false em C, é representado pelo 0 e pelo 1; Sendo 0 falso, e 1 verdadeiro.  
-    
-    // O que podemos fazer para facilitar nossa vida é, criar essas definições anteriormente, caso a gente queira fazer booleanas. 
-    // const int true = 1;
-    // const int false = 0;
