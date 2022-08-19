@@ -45,10 +45,10 @@ Então, até agora, escrevemos o programa dessa forma. Trocamos os arrays de exe
 int main(){
     char palavrasecreta[20];
     sprintf(palavrasecreta, "MELANCIA");
-    
+
     int acertou = 0;
     int enforcou = 0;
-    
+
     do {
 
     } while (!acertou && !enforcou); 
