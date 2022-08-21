@@ -52,7 +52,7 @@ int main() {
         break;
     }
 
-    for(int i = 1; i <= numerodetentativas; i++) {
+    for(int i = 1; i <= nivel; i++) {
 
 
         printf("Qual é o seu chute?\n\n");

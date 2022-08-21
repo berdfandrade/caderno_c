@@ -10,7 +10,7 @@ void abertura(){
     printf("****************************\n\n");
 }
 
-void chuta(char chutes[26], int tentativas) { // Lembrando que esse tentativas, não vai representar o tentativas lá de baixo... As variáveis só existem no contexto em que elas foram declaradas. 
+void chuta(char chutes[26], int tentativas) { // Lembrando que esse tentativas, não vai representar o tentativas lá de baixo... As variáveis só existem no escopo em que elas foram declaradas. 
 
     char chute;
     scanf(" %c", &chute);
