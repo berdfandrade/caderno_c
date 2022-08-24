@@ -31,8 +31,6 @@ int main() {
     char chutes[26];
     int tentativas = 0;
 
-    printf("%d %d\n", &chutes[0], chutes);
-    printf("%d %d %d\n", &chutes[0], &chutes[1], &chutes[2]);
 
     abertura(); // Assim eu invoco a função abertura; tipo javascript... 
 
