@@ -10,12 +10,13 @@ void abertura(){
     printf("****************************\n\n");
 }
 
-void chuta(char chutes[26], int tentativas) { // Lembrando que esse tentativas, não vai representar o tentativas lá de baixo... As variáveis só existem no escopo em que elas foram declaradas. 
+void chuta(char chutes[26], int* tentativas) { // Lembrando que esse tentativas, não vai representar o tentativas lá de baixo... As variáveis só existem no escopo em que elas foram declaradas. 
 
     char chute;
     scanf(" %c", &chute);
 
-    chutes[tentativas] = chute;
+    chutes[(*tentativas)] = chute;
+    (*tentativas)++;
 
 }
 
@@ -29,6 +30,9 @@ int main() {
 
     char chutes[26];
     int tentativas = 0;
+
+    printf("%d %d\n", &chutes[0], chutes);
+    printf("%d %d %d\n", &chutes[0], &chutes[1], &chutes[2]);
 
     abertura(); // Assim eu invoco a função abertura; tipo javascript... 
 
@@ -52,8 +56,7 @@ int main() {
         }
         printf("\n"); // criando nova linha. 
 
-        chuta(chutes, tentativas);
-        tentativas++;
+        chuta(chutes, &tentativas);
 
     } while (!acertou && !enforcou); 
 
