@@ -10,7 +10,7 @@ void abertura(){
     printf("****************************\n\n");
 }
 
-void chuta(char chutes[26], int* tentativas) { // Lembrando que esse tentativas, não vai representar o tentativas lá de baixo... As variáveis só existem no escopo em que elas foram declaradas. 
+int chuta(char chutes[26], int* tentativas) { // Lembrando que esse tentativas, não vai representar o tentativas lá de baixo... As variáveis só existem no escopo em que elas foram declaradas. 
 
     char chute;
     scanf(" %c", &chute);
@@ -44,7 +44,7 @@ int main() {
     char chutes[26];
     int tentativas = 0;
 
-    abertura(); // Assim eu invoco a função abertura; tipo javascript... 
+    abertura();
 
     do {    
             // Imprime a palavra secreta 
