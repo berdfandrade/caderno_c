@@ -12,7 +12,7 @@
     for(int i = 0; i < strlen(char nums[3]); i++){
         int soma_chars = (nums[i] + nums[i]);
     }
-
+ O racioncínio foi bom! Errei na sintaxe e especificidades da linguagem 
 } 
 
 }
@@ -20,9 +20,8 @@
 
 int soma(int* nums, int tam) {
     int total = 0;
-
     for(int i = 0; i < tam; i++) {
-        total += nums[i];
+        total = total + nums[i];
     }
 
     return total;
