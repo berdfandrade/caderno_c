@@ -1,6 +1,4 @@
 
-
-
 #include <stdio.h>
 #include <string.h>
 
@@ -29,10 +27,10 @@ int enforcou() {
 	return erros >= 5;
 }
 
-void abertura(){
-    printf("****************************\n");
-    printf("**      JOGO DA FORCA     **\n");
-    printf("****************************\n\n");
+void abertura() {
+	printf("/****************/\n");
+	printf("/ Jogo de Forca */\n");
+	printf("/****************/\n\n");
 }
 
 void chuta() {
@@ -93,7 +91,3 @@ int main() {
 	} while (!acertou && !enforcou());
 
 }
-
-
-
-
