@@ -4,25 +4,31 @@
 #include <stdio.h>
 #include <string.h>
 
+
+// Variávels globais > são declaradas fora de funções. 
+
+char palavrasecreta[20];
+char chutes[26];
+int tentativas = 0;
+
 void abertura(){
     printf("****************************\n");
     printf("**      JOGO DA FORCA     **\n");
     printf("****************************\n\n");
 }
 
-int chuta(char chutes[26], int* tentativas) { // Lembrando que esse tentativas, não vai representar o tentativas lá de baixo... As variáveis só existem no escopo em que elas foram declaradas. 
+void chuta() { 
 
     char chute;
     scanf(" %c", &chute);
 
-    chutes[(*tentativas)] = chute;
-    (*tentativas)++;
-
+    chutes[tentativas] = chute;
+    tentativas++;
 }
 
-int jachutou(char letra, char chutes[26], int tentativas) {
-    int achou = 0;       
 
+int jachutou(char letra) {
+    int achou = 0;       
     for(int j = 0; j < tentativas; j++) {
         if(chutes[j] == letra){
             achou = 1;
@@ -33,39 +39,58 @@ int jachutou(char letra, char chutes[26], int tentativas) {
     return achou;
 }
 
-int main() {
 
-    char palavrasecreta[20];
-    sprintf(palavrasecreta, "MELANCIA");
-    
-    int acertou = 0;
-    int enforcou = 0;
-
-    char chutes[26];
-    int tentativas = 0;
-
-    abertura();
-
-    do {    
-            // Imprime a palavra secreta 
-        for(int i = 0; i < strlen(palavrasecreta); i++) {
-
-            int achou = jachutou(palavrasecreta[i], chutes, tentativas);   
-            
-            if(achou) {
+void desenhaforca() {
+    for(int i = 0; i < strlen(palavrasecreta); i++) {
+        int achou = jachutou((palavrasecreta[i]));            
+        if(achou) {
             printf("%c ", palavrasecreta[i]);
-
-            } else {
-                printf("_ ");
-            }
+        } else {
+            printf("_ ");
         }
-        printf("\n"); // criando nova linha. 
-        chuta(chutes, &tentativas);
-
-    } while (!acertou && !enforcou);
-
     }
 
+    printf("\n");
+}
+
+void escolhepalavra(){
+    sprintf(palavrasecreta, "MELANCIA");
+}
+
+int enforcou () {
+
+    int errors = 0;
+
+    for(int i = 0; i < tentativas; i++) {
+        int existe = 0;
+
+        for(int j = 0; j < strlen(palavrasecreta); j++) {
+            if(chutes[i] == palavrasecreta[j]) {
+                existe = 1;
+                break;
+            } else(!existe);
+                errors++; 
+            }
+        }
+    return errors >= 5;
+    }
+
+
+int main() {
+    
+    int acertou = 0;
+
+    escolhepalavra(palavrasecreta);
+    abertura();
+
+    do {
+
+        desenhaforca(); 
+        chuta();
+
+    } while (!acertou && !enforcou());
+
+}
 
 
 

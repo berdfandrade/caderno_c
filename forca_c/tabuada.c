@@ -10,10 +10,9 @@ void abertura(int m){ // Para a função abertura ser invocada, precisamos passa
 int main() {
 
     int multiplicador = 2;
-
     abertura(multiplicador);
 
-    for(int i = 1; i<= 10; i++){
+    for(int i = 1; i <= 10; i++){
         printf("%d X %d = %d\n", multiplicador, i, multiplicador * i );
     }
 }

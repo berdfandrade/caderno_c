@@ -52,6 +52,8 @@ int main(){
     do {
 
     } while (!acertou && !enforcou); 
+
+} 
 ```
 
 Vamos agora capturar uma letra do usuário, e ver se essa letra existe na palavra secreta. Para isso, precisaremos fazer um `for` na palavra (afinal, sabemos o tamanho dela), e comparar se o `char` que está naquela posição bate com o informado pelo usuário. Para capturar o tamanho da palavra dentro de um array de chars, usamos a função `strlen()`. Ela está disponível em `<string.h>`.
