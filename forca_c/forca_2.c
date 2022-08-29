@@ -91,3 +91,12 @@ int main() {
 	} while (!acertou && !enforcou());
 
 }
+
+
+
+
+void abertura(){
+    printf("****************************\n");
+    printf("**      JOGO DA FORCA     **\n");
+    printf("****************************\n\n");
+}
