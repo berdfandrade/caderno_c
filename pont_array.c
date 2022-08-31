@@ -2,22 +2,6 @@
 #include <string.h>
 
 
-/* int main() {
-    int nums[3];
-    nums[0] = 10;
-    nums[1] = 20;
-    nums[2] = 30;
- 
-    int soma(char nums[3]){
-    for(int i = 0; i < strlen(char nums[3]); i++){
-        int soma_chars = (nums[i] + nums[i]);
-    }
- O racioncínio foi bom! Errei na sintaxe e especificidades da linguagem 
-} 
-
-}
-*/
-
 int soma(int* nums, int tam) {
     int total = 0;
     for(int i = 0; i < tam; i++) {
