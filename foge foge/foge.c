@@ -18,12 +18,23 @@ int main(){
 
     fscanf(f,"%d %d", &linhas, &colunas);
     printf("linhas %d colunas %d\n", linhas, colunas);
-    int* v = malloc(sizeof(int) * 50); // Aqui eu estou dizendo que vou alocar 50 int no ponteiro... O sizeof(int), indica que o inteiro que eu vou guardar, tem o tamanho de um inteiro na arquitetura do processador no quala linguagem C está rodando. 
-    v[0] = 10;
-    v[1] = 12;
-    v[3] = 80;
-    printf("inteiro alocado %d %d %d\n", v[0], v[1], v[3]);
-    free(v); // Sempre que eu aloco a memória, eu preciso esvaziar... 
+
+    int** v = malloc(sizeof(int*) * 5); // Declarando um ponteiro de ponteiro e alocando uma matriz dinâmicamente. 
+    for(int i =0; i < 5; i++) {
+        v[i] = malloc(sizeof(int) * 10); // Com isso, você constrói a matriz 
+    }
+
+    v[0][0] = 10;
+    v[1][2] = 12;
+
+    printf("inteiro alocado %d %d\n", v[0][0], v[1][2]);
+    // Sempre que eu aloco a memória, eu preciso esvaziar... 
+
+    for(int i = 0; i < 5; i++){
+        free(v[i]);
+    }
+
+    free(v);
 
     for(int i = 0; i < 5; i++){
         fscanf(f, "%s", mapa[i]);
