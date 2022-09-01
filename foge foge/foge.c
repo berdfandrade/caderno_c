@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char mapa[5][10+1]; 
+char** mapa; 
 int linhas;
 int colunas;
 
@@ -19,22 +19,11 @@ int main(){
     fscanf(f,"%d %d", &linhas, &colunas);
     printf("linhas %d colunas %d\n", linhas, colunas);
 
-    int** v = malloc(sizeof(int*) * 5); // Declarando um ponteiro de ponteiro e alocando uma matriz dinâmicamente. 
-    for(int i =0; i < 5; i++) {
-        v[i] = malloc(sizeof(int) * 10); // Com isso, você constrói a matriz 
+
+    mapa = malloc(sizeof(char*) * linhas);
+    for(int i = 0; i < linhas; i++){
+        mapa[i] = malloc(sizeof(char) * (colunas+ 1));
     }
-
-    v[0][0] = 10;
-    v[1][2] = 12;
-
-    printf("inteiro alocado %d %d\n", v[0][0], v[1][2]);
-    // Sempre que eu aloco a memória, eu preciso esvaziar... 
-
-    for(int i = 0; i < 5; i++){
-        free(v[i]);
-    }
-
-    free(v);
 
     for(int i = 0; i < 5; i++){
         fscanf(f, "%s", mapa[i]);
@@ -45,5 +34,9 @@ int main(){
      
     fclose(f);
 
+    for(int i = 0; i < linhas; i++){
+        free(mapa[i]);
+    }
+    free(mapa); 
 }
 
