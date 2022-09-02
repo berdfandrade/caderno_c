@@ -18,9 +18,9 @@ void liberamapa(){
 
 // Aloca o mapa na memória. 
 void alocamapa(){
-     mapa = malloc(sizeof(char*) * linhas);
-    for(int i = 0; i < linhas; i++){
-    mapa[i] = malloc(sizeof(char) * (colunas+ 1));
+    mapa = malloc(sizeof(char*) * linhas);
+    for(int i = 0; i < linhas; i++) {
+    mapa[i] = malloc(sizeof(char) * (colunas+1));
     }
 }
 
@@ -36,11 +36,12 @@ void lemapa(){
 
     fscanf(f,"%d %d", &linhas, &colunas);
 
+    alocamapa();
+
     for(int i = 0; i < 5; i++){
         fscanf(f, "%s", mapa[i]);
     }
     fclose(f);
-
 }
 
 // Imprime o mapa no arquivo .C
@@ -48,7 +49,6 @@ void imprimemapa(){
         for(int i = 0; i < 5; i++){
         printf("%s\n", mapa[i]); 
     }
-
 
 } 
 
@@ -62,8 +62,8 @@ void move(char direcao){
 
     // Acha a posição do foge foge. 
     for(int i = 0; i < linhas; i++){
-        for(int j = 0; j < colunas; i++){
-            if(mapa[i][j] = '@'){
+        for(int j = 0; j < colunas; j++) {
+            if(mapa[i][j] == '@'){
                 x = i;
                 y = j;
                 break;
@@ -98,16 +98,13 @@ int main(){
 
     do {
     
-    imprimemapa();
+        imprimemapa();
 
-    char comando;
-    scanf(" %c", &comando);
-    move(comando);
+        char comando;
+        scanf(" %c", &comando);
+        move(comando);
 
-    } while (!acabou()); { 
-
-    }
-    
+    } while (!acabou());  
     
     liberamapa();
 }
