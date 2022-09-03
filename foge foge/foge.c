@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include "foge.h"
 
-struct mapa m;
+//Struct que agrupa os int's e char que compõem o mapa. Servem para "definir novos tipos" Por exemplo, um "mapa", que é uma matriz e mais linhas e colunas. Ou um "registro", que é um nome e um telefone. Assim, fica mais fácil passar esse conjunto de dados entre funções.
+
+MAPA m;
 
 // Libera a o mapa da memória.. 
 void liberamapa(){
@@ -54,11 +56,13 @@ int acabou(){
     return 0;
 }
 
+// Move o @ pelo mapa. 
 void move(char direcao){
     int x;
     int y;
 
-    // Acha a posição do foge foge. 
+
+// Acha a posição do foge foge. 
     for(int i = 0; i < m.linhas; i++){
         for(int j = 0; j < m.colunas; j++) {
             if(m.matriz[i][j] == '@'){
