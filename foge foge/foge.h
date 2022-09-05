@@ -1,12 +1,4 @@
 
-
-void libermapa();
-void lemapa();
-void alocamapa();
-void imprimepa();
-void move(char direcao);
-int acabou(); 
-
 struct mapa { 
     char** matriz; 
     int linhas;
@@ -14,3 +6,12 @@ struct mapa {
 };
 
 typedef struct mapa MAPA; 
+
+void liberamapa();
+void lemapa();
+void alocamapa();
+void imprimepa();
+
+
+void move(char direcao);
+int acabou(); 
