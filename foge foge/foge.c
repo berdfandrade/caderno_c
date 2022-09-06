@@ -1,5 +1,4 @@
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "foge.h"
@@ -52,10 +51,10 @@ void move(char direcao){
 // Nossa função principal... 
 int main(){
 
-    lemapa(MAPA* m);
+    lemapa(&m);
 
     do {
-        imprimemapa(MAPA* m);
+        imprimemapa(&m);
 
         char comando;
         scanf(" %c", &comando);
@@ -63,6 +62,6 @@ int main(){
 
     } while (!acabou());  
     
-    liberamapa();
+    liberamapa(&m);
 }
 

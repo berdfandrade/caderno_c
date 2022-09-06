@@ -7,10 +7,10 @@ struct mapa {
 
 typedef struct mapa MAPA; 
 
-void liberamapa();
-void lemapa();
-void alocamapa();
-void imprimepa();
+void liberamapa(MAPA* m);
+void lemapa(MAPA* m);
+void alocamapa(MAPA* m);
+void imprimepa(MAPA* m);
 
 
 void move(char direcao);

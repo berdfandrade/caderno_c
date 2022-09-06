@@ -1,7 +1,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "foge.h"
 #include "mapa.txt"
 
 void liberamapa(MAPA* m){
@@ -29,7 +28,7 @@ void lemapa(MAPA* m){
 
     fscanf(f,"%d %d", &(m->linhas), &(m->colunas));
 
-    alocamapa(MAPA* m);
+    alocamapa(m);
 
     for(int i = 0; i < 5; i++){
         fscanf(f, "%s", m->matriz[i]);
@@ -44,6 +43,3 @@ void imprimemapa(MAPA* m){
 
 } 
 
-int acabou(MAPA* m){
-    return 0;
-}
