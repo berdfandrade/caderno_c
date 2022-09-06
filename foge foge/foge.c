@@ -6,6 +6,7 @@
 
 // Struct 
 MAPA m;
+POSICAO heroi // Aqui, é como se eu tivesse colocando um nome de uma outra variavél nesse struct... Sendo posicao, o tipo dessa variavel. Ou seja uma variavel que contem variaveis x e y dentro dela.
 
 int acabou(){
     return 0;
@@ -16,17 +17,7 @@ void move(char direcao){
     int x;
     int y;
 
-
-// Acha a posição do foge foge. 
-    for(int i = 0; i < m.linhas; i++){
-        for(int j = 0; j < m.colunas; j++) {
-            if(m.matriz[i][j] == '@'){
-                x = i;
-                y = j;
-                break;
-            }
-        }
-    }
+    encontramapa(MAPA* m, POSICAO* p, char c);
 
     switch(direcao){
         case 'a':
