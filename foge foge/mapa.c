@@ -1,19 +1,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-// Não preciso fazer o include do mapa.txt, porque a função lemapa() já faz a leitura do arquivo... Como é um txt, não tem problema, mas acreito que se fosse um arquivo C, eu teria que fazer o include, porque o arquivo c, é como se fosse uma biblioteca. 
+#include "mapa.h"
 
-void encontramapa(MAPA* m, POSICAO* p, char c){
-	for(int i = 0; i < m->linhas; i++){
-        for(int j = 0; j < m->colunas; j++) {
-            if(m->matriz[i][j] == c){ // Trocamos o @ pelo c, porque colocamos ele como parâmetro da função ali em cima. 
-                p->x = i;
-                p->y = j;
-                break;
-            }
-        }
-    }
-}
 
 void lemapa(MAPA* m) {
 	FILE* f;
@@ -28,7 +17,7 @@ void lemapa(MAPA* m) {
 	
 	for(int i = 0; i < m->linhas; i++) {
 		fscanf(f, "%s", m->matriz[i]);
-	}
+	} 
 
 	fclose(f);
 }
@@ -53,4 +42,16 @@ void imprimemapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		printf("%s\n", m->matriz[i]);
 	}
+}
+
+void encontramapa(MAPA* m, POSICAO* p, char c){
+	for(int i = 0; i < m->linhas; i++){
+        for(int j = 0; j < m->colunas; j++) {
+            if(m->matriz[i][j] == c) {
+                p->x = i;
+                p->y = j;
+                return;
+            }
+        }
+    }
 }

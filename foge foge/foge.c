@@ -1,12 +1,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "foge.h"
-#include "mapa.c" 
+#include "mapa.h"
+#include "fogefoge.h"
 
 // Struct 
 MAPA m;
-POSICAO heroi // Aqui, é como se eu tivesse colocando um nome de uma outra variavél nesse struct... Sendo posicao, o tipo dessa variavel. Ou seja uma variavel que contem variaveis x e y dentro dela.
+POSICAO heroi; // Aqui, é como se eu tivesse colocando um nome de uma outra variavél nesse struct... Sendo posicao, o tipo dessa variavel. Ou seja uma variavel que contem variaveis x e y dentro dela.
+// E aqui temo o x e o y que o herói está...
 
 int acabou(){
     return 0;
@@ -14,28 +15,30 @@ int acabou(){
 
 // Move o @ pelo mapa. 
 void move(char direcao){
-    int x;
-    int y;
 
-    encontramapa(MAPA* m, POSICAO* p, char c);
+    m.matriz[heroi.x][heroi.y] = '.';
 
     switch(direcao){
         case 'a':
-            m.matriz[x][y-1] = '@';
+            m.matriz[heroi.x][heroi.y-1] = '@';
+            heroi.y--;
             break;
         case 'w': 
-            m.matriz[x-1][y] = '@';
+            m.matriz[heroi.x-1][heroi.y] = '@';
+            heroi.x--;
             break;
         case 's':
-            m.matriz[x+1][y] = '@';
+            m.matriz[heroi.x+1][heroi.y] = '@';
+            heroi.x++;
             break;
         case 'd':
-            m.matriz[x][y+1] = '@';
+            m.matriz[heroi.x][heroi.y+1] = '@';
+            heroi.y++;
             break;
         
     }
 
-    m.matriz[x][y] = '.';
+    
 }
 
 
@@ -43,6 +46,7 @@ void move(char direcao){
 int main(){
 
     lemapa(&m);
+    encontramapa(&m, &heroi, '@');
 
     do {
         imprimemapa(&m);
