@@ -44,12 +44,9 @@ void move(char direcao){
     if(!ehvazia(&m, proximox, proximoy)) 
         return; 
 
-    m.matriz[proximox][proximoy] = '@'; 
-    m.matriz[heroi.x][heroi.y] = '.';
-
-    heroi.x = proximox;
-    heroi.y = proximoy; 
-    
+    andanomapa(&m, heroi.x, heroi.y, proximox, proximoy); 
+        heroi.x = proximox;
+        heroi.y = proximoy;
     }
 
 
