@@ -38,8 +38,8 @@ void move(char direcao){
         
     }
 
-    if(proximox >= m.linhas) return;
-    if(proximoy >= m.colunas) return; 
+    if(!ehvalida(&m, proximox, proximoy)) return; 
+
     if(m.matriz[proximox][proximoy] != '.') return;
 
     m.matriz[proximox][proximoy] = '@'; 
