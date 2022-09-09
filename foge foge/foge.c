@@ -38,9 +38,11 @@ void move(char direcao){
         
     }
 
-    if(!ehvalida(&m, proximox, proximoy)) return; 
+    if(!ehvalida(&m, proximox, proximoy)) 
+        return; 
 
-    if(m.matriz[proximox][proximoy] != '.') return;
+    if(!ehvazia(&m, proximox, proximoy)) 
+        return; 
 
     m.matriz[proximox][proximoy] = '@'; 
     m.matriz[heroi.x][heroi.y] = '.';

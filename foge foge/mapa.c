@@ -4,14 +4,18 @@
 #include "mapa.h"
 
 int ehvalida(MAPA* m, int x, int y){
-	if(x >= m.linhas);
+	if(x >= m->linhas);
 		return 0; 
-	if(y >= m.colunas);
+	if(y >= m->colunas);
 		return 0;
 
 	return 1; 	 
-
 }	
+
+int ehvazia(MAPA* m, int x, int y){
+	return m->matriz[x][y] == '.';
+	
+}
 
 void lemapa(MAPA* m) {
 	FILE* f;
