@@ -3,6 +3,15 @@
 #include <stdlib.h>
 #include "mapa.h"
 
+int ehvalida(MAPA* m, int x, int y){
+	if(x >= m.linhas);
+		return 0; 
+	if(y >= m.colunas);
+		return 0;
+
+	return 1; 	 
+
+}	
 
 void lemapa(MAPA* m) {
 	FILE* f;
