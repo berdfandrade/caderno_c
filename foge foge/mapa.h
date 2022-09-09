@@ -21,4 +21,6 @@ typedef struct posicao POSICAO;
 
 void encontramapa(MAPA* m, POSICAO* p, char c);
 
+int ehvalida(MAPA* m, int x, int y); 
+
 
