@@ -28,6 +28,7 @@ void imprimemapa(MAPA* m);
 struct posicao{
     int x;
     int y; 
+    
 };
 
 typedef struct posicao POSICAO; 
