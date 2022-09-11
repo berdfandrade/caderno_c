@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "mapa.h"
 
+
+// Verifica se a posição do char no mapa é valida beaseada no tamanho da matriz. 
 int ehvalida(MAPA* m, int x, int y){
 	if(x >= m->linhas){
 		return 0; 	
@@ -16,11 +18,14 @@ int ehvalida(MAPA* m, int x, int y){
 	return 1; 	 
 }	
 
+
+// Diz que a posição especificada na função é VAZIA. 
 int ehvazia(MAPA* m, int x, int y){
 	return m->matriz[x][y] == VAZIO;
 }
 
 
+// Faz um char andar pelo mapa. 
 void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino) {
 	char personagem = m->matriz[xorigem][yorigem];
 	m->matriz[xdestino][ydestino] = personagem;
@@ -28,6 +33,8 @@ void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino) {
 
 }
 
+
+// Lê o mapa da memória.
 void lemapa(MAPA* m) {
 	FILE* f;
 	f = fopen("mapa.txt", "r");
@@ -46,6 +53,8 @@ void lemapa(MAPA* m) {
 	fclose(f);
 }
 
+
+// Aloca o mapa na memória.
 void alocamapa(MAPA* m) {
 	m->matriz = malloc(sizeof(char*) * m->linhas);
 
@@ -54,6 +63,8 @@ void alocamapa(MAPA* m) {
 	}
 }
 
+
+// Libera o mapa da memória. 
 void liberamapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		free(m->matriz[i]);
@@ -62,12 +73,16 @@ void liberamapa(MAPA* m) {
 	free(m->matriz);
 }
 
+
+// Função imprime o mapa no terminal.
 void imprimemapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		printf("%s\n", m->matriz[i]);
 	}
 }
 
+
+// Função encontra o char no mapa.
 void encontramapa(MAPA* m, POSICAO* p, char c){
 	for(int i = 0; i < m->linhas; i++){
         for(int j = 0; j < m->colunas; j++) {
