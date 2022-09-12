@@ -13,6 +13,7 @@
 // Constante que define a parede horizontal do mapa. 
 #define PAREDE_HORIZONTAL '-'
 
+// Criando o struct mapa.
 struct mapa { 
     char** matriz; 
     int linhas;
@@ -46,5 +47,7 @@ int ehvazia(MAPA* m, int x, int y);
 
 //Função que faz o elemento andar pelo mapa. 
 void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino);
+
+void copiamapa(MAPA* destino, MAPA* origem);
 
 

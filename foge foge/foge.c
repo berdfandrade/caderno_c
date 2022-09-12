@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "mapa.h"
 #include "fogefoge.h"
 
@@ -10,10 +11,14 @@ POSICAO heroi; // Aqui, é como se eu tivesse colocando um nome de uma outra var
 // E aqui temo o x e o y que o herói está...
 
 void fantasmas(){
+    MAPA copia;
+
+    copiamapa(&copia, &m);
+
     for(int i = 0; i < m.linhas; i++){
         for(int j = 0; j < m.colunas; j++){
-            if(m.matriz[i][j] == FANTASMA){
-                if(ehvalida(&m, i, j+1)){
+            if(copia.matriz[i][j] == FANTASMA){
+                if(ehvalida(&m, i, j+1) && ehvazia(&m, i, j+1)){
                     andanomapa(&m, i, j, i, j+1); 
                 }
             }
