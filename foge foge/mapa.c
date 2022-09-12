@@ -15,11 +15,8 @@ void copiamapa(MAPA* destino, MAPA* origem){
             strcpy(destino->matriz[i], origem->matriz[i]);
         }
 
-	liberamapa(destino);
+	liberamapa(destino); // invoquei essa função aqui. Isso está diferente do C III 
     }
-
-
-
 
 // Verifica se a posição do char no mapa é valida beaseada no tamanho da matriz. 
 int ehvalida(MAPA* m, int x, int y){
