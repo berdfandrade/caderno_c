@@ -1,13 +1,15 @@
+
+
 //CONSTANTES 
 
 // |Constante do herói. 
 #define HEROI '@'
 // | Constante que define o vazio no mapa. 
 #define VAZIO '.'
-
+// Constante que define o fantasma. 
+#define FANTASMA 'F' 
 // | Constante que define a parede vertical no mapa. 
 #define PAREDE_VERTICAL '|'
-
 // Constante que define a parede horizontal do mapa. 
 #define PAREDE_HORIZONTAL '-'
 

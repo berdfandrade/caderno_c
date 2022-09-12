@@ -47,7 +47,7 @@ void lemapa(MAPA* m) {
 	alocamapa(m);
 	
 	for(int i = 0; i < m->linhas; i++) {
-		fscanf(f, "%s", m->matriz[i]);
+		fscanf(f, "%s", m->matriz[i]); // Entender melhor o que essa linha faz. 
 	} 
 
 	fclose(f);
@@ -57,7 +57,6 @@ void lemapa(MAPA* m) {
 // Aloca o mapa na memória.
 void alocamapa(MAPA* m) {
 	m->matriz = malloc(sizeof(char*) * m->linhas);
-
 	for(int i = 0; i < m->linhas; i++) {
 		m->matriz[i] = malloc(sizeof(char) * m->colunas + 1);
 	}

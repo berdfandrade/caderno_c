@@ -9,6 +9,17 @@ MAPA m;
 POSICAO heroi; // Aqui, é como se eu tivesse colocando um nome de uma outra variavél nesse struct... Sendo posicao, o tipo dessa variavel. Ou seja uma variavel que contem variaveis x e y dentro dela.
 // E aqui temo o x e o y que o herói está...
 
+void fantasmas(){
+    for(int i = 0; i < m.linhas; i++){
+        for(int j = 0; j < m.colunas; j++){
+            if(m.matriz[i][j] == FANTASMA){
+                if(ehvalida(&m, i, j+1)){
+                    andanomapa(&m, i, j, i, j+1); 
+                }
+            }
+        }
+    }
+}
 int acabou(){
     return 0;
 }
@@ -62,6 +73,7 @@ int main(){
         char comando;
         scanf(" %c", &comando);
         move(comando);
+        fantasmas();
 
     } while (!acabou());  
     
