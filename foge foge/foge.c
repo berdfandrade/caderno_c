@@ -23,7 +23,10 @@ void fantasmas(){
                 }
             }
         }
+   
     }
+liberamapa(&copia);
+
 }
 int acabou(){
     return 0;
