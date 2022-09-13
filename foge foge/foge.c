@@ -11,7 +11,6 @@ MAPA m;
 POSICAO heroi;
 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
-
     int opcoes[4][2] = {
         { xatual, yatual + 1 },
         { xatual + 1, yatual }, 
