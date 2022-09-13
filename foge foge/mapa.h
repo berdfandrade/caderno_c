@@ -48,6 +48,8 @@ int ehvazia(MAPA* m, int x, int y);
 //Função que faz o elemento andar pelo mapa. 
 void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino);
 
+// Funçãoq que copia o mapa, e replica ele. 
 void copiamapa(MAPA* destino, MAPA* origem);
 
-
+// Função que veririca se o elemento pode andar. 
+int podeandar(MAPA* m, int x, int y);

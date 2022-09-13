@@ -13,24 +13,24 @@ POSICAO heroi;
 // Função que define para onde o fanstama vai (randomicamente). 
 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
+    
     int opcoes[4][2] = {
-        { xatual, yatual + 1 },
-        { xatual + 1, yatual }, 
-        { xatual, yatual - 1 }, 
-        { xatual - 1, yatual }, 
+		{ xatual   , yatual+1 }, 
+		{ xatual+1 , yatual   },  
+		{ xatual   , yatual-1 }, 
+		{ xatual-1 , yatual   }
     };
 
     srand(time(0));
     for(int i = 0; i < 10; i++){
         int posicao = rand() % 4;
 
-        if(ehvalida(&m, opcoes[posicao][0], opcoes[posicao][1]) && ehvazia(&m, opcoes[posicao][0], opcoes[posicao][1])){
-            
-            *xdestino = opcoes[posicao][0];
-            *ydestino = opcoes[posicao][1];
+		if(podeandar(&m, opcoes[posicao][0], opcoes[posicao][1])) {
+			*xdestino = opcoes[posicao][0];
+			*ydestino = opcoes[posicao][1];
+            return 1;
         }
 
-        return 1; 
     }
 
     return 0; 
@@ -68,7 +68,8 @@ int acabou(){
     return 0;
 }
 
-// Move o @ pelo mapa. 
+// Move o HEROI pelo mapa. 
+
 void move(char direcao){
 
     if(direcao != 'a' && direcao != 'w' && direcao != 's' && direcao != 'd')

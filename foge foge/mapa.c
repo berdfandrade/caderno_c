@@ -4,6 +4,7 @@
 #include <string.h>
 #include "mapa.h"
 
+// <Função que copia o mapa, aloca o mapa na memória e devolve outro mapa> 
 
 void copiamapa(MAPA* destino, MAPA* origem){ 
     destino->linhas = origem->linhas;
@@ -46,6 +47,12 @@ void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino) {
 
 }
 
+// Função que verifca se o elemento pode andar. 
+int podeandar(MAPA* m, int x, int y) {
+	return 
+		ehvalida(m, x, y) && 
+		ehvazia(m, x, y);
+}
 
 // Lê o mapa da memória.
 void lemapa(MAPA* m) {
