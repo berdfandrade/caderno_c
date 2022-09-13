@@ -15,3 +15,5 @@ int ehdirecao(char direcao){
     return direcao == 'a' || direcao == 'w' || direcao == 's' || direcao == 'd';
 }
 
+int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino);
+
