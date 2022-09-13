@@ -6,9 +6,11 @@
 #include "mapa.h"
 #include "fogefoge.h"
 
-// Struct 
+// Struct MAPA, e o HEROI 
 MAPA m;
 POSICAO heroi;
+
+// Função que define para onde o fanstama vai (randomicamente). 
 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
     int opcoes[4][2] = {
@@ -33,6 +35,8 @@ int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
 
     return 0; 
 }
+
+// Função que imprime o fantasma e faz ele andar.
 
 void fantasmas(){
     MAPA copia;
@@ -68,7 +72,7 @@ int acabou(){
 void move(char direcao){
 
     if(direcao != 'a' && direcao != 'w' && direcao != 's' && direcao != 'd')
-    return; // Aqui esse return simplesmente quebra "quebra o código... A função para."
+    return;
 
     int proximox = heroi.x;
     int proximoy = heroi.y;
@@ -89,19 +93,23 @@ void move(char direcao){
         
     }
 
+    // Verifica se a o ponto na matriz é valido.
+
     if(!ehvalida(&m, proximox, proximoy)) 
         return; 
 
+    // Verifica se o ponto na matriz é está vazio.
     if(!ehvazia(&m, proximox, proximoy)) 
         return; 
 
+    // Função que faz os elementos andarem no mapa. 
     andanomapa(&m, heroi.x, heroi.y, proximox, proximoy); 
         heroi.x = proximox;
         heroi.y = proximoy;
     }
 
 
-// Nossa função principal... 
+// Nossa função principal... (main)
 int main(){
 
     lemapa(&m);
