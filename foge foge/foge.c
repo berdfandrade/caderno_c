@@ -78,10 +78,11 @@ int acabou(){
 
 }
 
+
 // Move o HEROI pelo mapa. 
 void move(char direcao){
 
-    if(direcao != 'a' && direcao != 'w' && direcao != 's' && direcao != 'd')
+    if(!ehdirecao(direcao))
     return;
 
     int proximox = heroi.x;
