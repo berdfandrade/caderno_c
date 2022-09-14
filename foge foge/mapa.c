@@ -47,12 +47,26 @@ void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino) {
 
 }
 
+int ehparede(MAPA* m, int x, int y){
+	return m->matriz[x][y] == PAREDE_HORIZONTAL || m->matriz[x][y] == PAREDE_VERTICAL; 
+}
+
+int ehpersonagem(MAPA* m, char personagem, int x, int y){
+	return m->matriz[x][y] == personagem; 
+}
+
+
 // Função que verifca se o elemento pode andar. 
-int podeandar(MAPA* m, int x, int y) {
+int podeandar(MAPA* m, char personagem, int x, int y) { // Sou obrigado a mudar a assiatura da função; 
 	return 
 		ehvalida(m, x, y) && 
-		ehvazia(m, x, y);
+		ehvazia(m, x, y) &&
+		!ehpersonagem(m, personagem, x, y) &&
+		!ehparede(m, x, y);
 }
+
+// Função que verifica se é uma parede. 
+
 
 // Lê o mapa da memória.
 void lemapa(MAPA* m) {
@@ -102,14 +116,16 @@ void imprimemapa(MAPA* m) {
 
 
 // Função encontra o char no mapa.
-void encontramapa(MAPA* m, POSICAO* p, char c){
+int encontramapa(MAPA* m, POSICAO* p, char c){
 	for(int i = 0; i < m->linhas; i++){
         for(int j = 0; j < m->colunas; j++) {
             if(m->matriz[i][j] == c) {
                 p->x = i;
                 p->y = j;
-                return;
+                return 1;
             }
         }
     }
+
+	return 0; 
 }

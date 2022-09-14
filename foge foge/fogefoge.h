@@ -15,5 +15,6 @@ int ehdirecao(char direcao){
     return direcao == 'a' || direcao == 'w' || direcao == 's' || direcao == 'd';
 }
 
+// Função que define uma posição aleatóia para o fantasma ir. 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino);
 

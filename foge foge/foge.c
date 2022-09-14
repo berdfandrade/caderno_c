@@ -7,10 +7,11 @@
 #include "fogefoge.h"
 
 // Struct MAPA, e o HEROI 
+
 MAPA m;
 POSICAO heroi;
 
-// Função que define para onde o fanstama vai (randomicamente). 
+// Função que define uma posição aleatóia para o fantasma ir.  
 
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
     
@@ -25,7 +26,7 @@ int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
     for(int i = 0; i < 10; i++){
         int posicao = rand() % 4;
 
-		if(podeandar(&m, opcoes[posicao][0], opcoes[posicao][1])) {
+		if(podeandar(&m, FANTASMA, opcoes[posicao][0], opcoes[posicao][1])) {
 			*xdestino = opcoes[posicao][0];
 			*ydestino = opcoes[posicao][1];
             return 1;
@@ -64,12 +65,15 @@ liberamapa(&copia);
 
 }
 
-int acabou(){
-    return 0;
+// Vai buscar o heroi no mapa; Se ele não achar o herói é porque o jogo acabou. 
+
+int acabou(){ 
+    POSICAO pos;
+    int fogefogenomapa = encontramapa(&m, &pos, HEROI);
+    return !fogefogenomapa;
 }
 
 // Move o HEROI pelo mapa. 
-
 void move(char direcao){
 
     if(direcao != 'a' && direcao != 'w' && direcao != 's' && direcao != 'd')
@@ -94,16 +98,9 @@ void move(char direcao){
         
     }
 
-    // Verifica se a o ponto na matriz é valido.
+   if(!podeandar(&m, HEROI, proximox, proximoy)) return; 
 
-    if(!ehvalida(&m, proximox, proximoy)) 
-        return; 
 
-    // Verifica se o ponto na matriz é está vazio.
-    if(!ehvazia(&m, proximox, proximoy)) 
-        return; 
-
-    // Função que faz os elementos andarem no mapa. 
     andanomapa(&m, heroi.x, heroi.y, proximox, proximoy); 
         heroi.x = proximox;
         heroi.y = proximoy;

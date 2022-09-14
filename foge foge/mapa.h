@@ -37,7 +37,7 @@ struct posicao{
 typedef struct posicao POSICAO; 
 
 // Função para encontrar o mapa
-void encontramapa(MAPA* m, POSICAO* p, char c);
+int encontramapa(MAPA* m, POSICAO* p, char c);
 
 // Função para validar a posição do herói
 int ehvalida(MAPA* m, int x, int y); 
@@ -51,5 +51,9 @@ void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino);
 // Funçãoq que copia o mapa, e replica ele. 
 void copiamapa(MAPA* destino, MAPA* origem);
 
-// Função que veririca se o elemento pode andar. 
-int podeandar(MAPA* m, int x, int y);
+// Função que verifica se o elemento pode andar. 
+int podeandar(MAPA* m, char personagem, int x, int y);
+
+// Função que verifica se o caráctere é um personagem 
+int ehpersonagem(MAPA* m, char personagem, int x, int y); 
+
