@@ -1,11 +1,16 @@
 
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "mapa.h"
 
-// <Função que copia o mapa, aloca o mapa na memória e devolve outro mapa> 
+// Quando coloco o sinal de ">" quero dizer que a 
+// função foi criada para estar dentro da lógica de outra função. 
 
+
+// Função que copia o mapa, aloca o mapa na memória e devolve outro mapa
 void copiamapa(MAPA* destino, MAPA* origem){ 
     destino->linhas = origem->linhas;
     destino->colunas= origem->colunas;
@@ -18,7 +23,8 @@ void copiamapa(MAPA* destino, MAPA* origem){
 
     }
 
-// Verifica se a posição do char no mapa é valida beaseada no tamanho da matriz. 
+// Verifica se a posição do char no mapa é valida 
+// beaseada no tamanho da matriz. > podeandar()
 int ehvalida(MAPA* m, int x, int y){
 	if(x >= m->linhas){
 		return 0; 	
@@ -28,12 +34,11 @@ int ehvalida(MAPA* m, int x, int y){
 		return 0;
 	}
 
-
 	return 1; 	 
 }	
 
 
-// Diz que a posição especificada na função é VAZIA. 
+// Diz que a posição especificada na função é VAZIA. > podeandar().
 int ehvazia(MAPA* m, int x, int y){
 	return m->matriz[x][y] == VAZIO;
 }
@@ -47,25 +52,26 @@ void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino) {
 
 }
 
+// Função que verifica se é uma parede.  > podeandar().
 int ehparede(MAPA* m, int x, int y){
-	return m->matriz[x][y] == PAREDE_HORIZONTAL || m->matriz[x][y] == PAREDE_VERTICAL; 
+	return m->matriz[x][y] == PAREDE_HORIZONTAL 
+	|| m->matriz[x][y] == PAREDE_VERTICAL; 
 }
 
+// Função que verifica se é o caractére é um personagem > podeandar(). 
 int ehpersonagem(MAPA* m, char personagem, int x, int y){
 	return m->matriz[x][y] == personagem; 
 }
 
 
 // Função que verifca se o elemento pode andar. 
-int podeandar(MAPA* m, char personagem, int x, int y) { // Sou obrigado a mudar a assiatura da função; 
+int podeandar(MAPA* m, char personagem, int x, int y) {
 	return 
 		ehvalida(m, x, y) && 
 		ehvazia(m, x, y) &&
 		!ehpersonagem(m, personagem, x, y) &&
 		!ehparede(m, x, y);
 }
-
-// Função que verifica se é uma parede. 
 
 
 // Lê o mapa da memória.

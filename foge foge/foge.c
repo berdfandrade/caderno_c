@@ -12,9 +12,9 @@ MAPA m;
 POSICAO heroi;
 
 // Função que define uma posição aleatóia para o fantasma ir.  
-
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
     
+    // Criando as diferentes posições que o fantasma pode ir. 
     int opcoes[4][2] = {
 		{ xatual   , yatual+1 }, 
 		{ xatual+1 , yatual   },  
@@ -22,6 +22,7 @@ int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
 		{ xatual-1 , yatual   }
     };
 
+    // Gerando 4 números aleatórios (posições possíveis). 
     srand(time(0));
     for(int i = 0; i < 10; i++){
         int posicao = rand() % 4;
@@ -38,7 +39,6 @@ int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
 }
 
 // Função que imprime o fantasma e faz ele andar.
-
 void fantasmas(){
     MAPA copia;
 
@@ -67,10 +67,15 @@ liberamapa(&copia);
 
 // Vai buscar o heroi no mapa; Se ele não achar o herói é porque o jogo acabou. 
 
-int acabou(){ 
+int acabou(){
+    
     POSICAO pos;
-    int fogefogenomapa = encontramapa(&m, &pos, HEROI);
-    return !fogefogenomapa;
+    
+    int ganhou = !encontramapa(&m, &pos, HEROI);
+    int perdeu = !encontramapa(&m, &pos, HEROI);
+
+    return ganhou || perdeu; 
+
 }
 
 // Move o HEROI pelo mapa. 

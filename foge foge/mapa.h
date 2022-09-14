@@ -57,3 +57,7 @@ int podeandar(MAPA* m, char personagem, int x, int y);
 // Função que verifica se o caráctere é um personagem 
 int ehpersonagem(MAPA* m, char personagem, int x, int y); 
 
+// Função que verifica se é uma parede. 
+int ehparede(MAPA* m, int x, int y); 
+
+
