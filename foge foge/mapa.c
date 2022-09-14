@@ -112,6 +112,7 @@ void liberamapa(MAPA* m) {
 	free(m->matriz);
 }
 
+
 // Função imprime o mapa no terminal.
 void imprimemapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
