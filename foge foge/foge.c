@@ -11,6 +11,17 @@
 MAPA m;
 POSICAO heroi;
 
+int acabou(){
+    
+    POSICAO pos;
+    
+    int ganhou = !encontramapa(&m, &pos, HEROI);
+    int perdeu = !encontramapa(&m, &pos, HEROI);
+
+    return ganhou || perdeu; 
+
+}
+
 // Função que define uma posição aleatóia para o fantasma ir.  
 int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino){
     
@@ -65,19 +76,6 @@ liberamapa(&copia);
 
 }
 
-// Vai buscar o heroi no mapa; Se ele não achar o herói é porque o jogo acabou. 
-
-int acabou(){
-    
-    POSICAO pos;
-    
-    int ganhou = !encontramapa(&m, &pos, HEROI);
-    int perdeu = !encontramapa(&m, &pos, HEROI);
-
-    return ganhou || perdeu; 
-
-}
-
 
 // Move o HEROI pelo mapa. 
 void move(char direcao){
@@ -124,6 +122,7 @@ int main(){
 
         char comando;
         scanf(" %c", &comando);
+
         move(comando);
         fantasmas();
 

@@ -123,6 +123,7 @@ void imprimemapa(MAPA* m) {
 
 // Função encontra o char no mapa.
 int encontramapa(MAPA* m, POSICAO* p, char c){
+	
 	for(int i = 0; i < m->linhas; i++){
         for(int j = 0; j < m->colunas; j++) {
             if(m->matriz[i][j] == c) {
@@ -132,6 +133,5 @@ int encontramapa(MAPA* m, POSICAO* p, char c){
             }
         }
     }
-
 	return 0; 
 }
