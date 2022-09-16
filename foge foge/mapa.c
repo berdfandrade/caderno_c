@@ -22,6 +22,7 @@ void copiamapa(MAPA* destino, MAPA* origem){
         }
 
     }
+	
 
 // Verifica se a posição do char no mapa é valida 
 // beaseada no tamanho da matriz. > podeandar()
