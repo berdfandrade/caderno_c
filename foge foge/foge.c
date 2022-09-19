@@ -15,11 +15,16 @@ int acabou(){
     
     POSICAO pos;
     
-    int ganhou = !encontramapa(&m, &pos, HEROI);
-    int perdeu = !encontramapa(&m, &pos, HEROI);
+    int pos_heroi = !encontramapa(&m, &pos, HEROI);
+    int pos_fantasma = encontramapa(&m, &pos, FANTASMA);
+    int perdeu = 0;
+    int ganhou = 0;
 
-    return ganhou || perdeu; 
+    while(pos_fantasma != pos_heroi){
+        return 0;
+    }
 
+ return 1;
 }
 
 // Função que define uma posição aleatóia para o fantasma ir.  

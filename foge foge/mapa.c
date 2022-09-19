@@ -3,6 +3,7 @@
 #include "mapa.h"
 #include <string.h>
 
+
 void lemapa(MAPA* m) {
 	FILE* f;
 	f = fopen("mapa.txt", "r");
