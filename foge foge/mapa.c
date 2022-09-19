@@ -1,80 +1,8 @@
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "mapa.h"
+#include <string.h>
 
-// Quando coloco o sinal de ">" quero dizer que a 
-// função foi criada para estar dentro da lógica de outra função. 
-
-
-// Função que copia o mapa, aloca o mapa na memória e devolve outro mapa
-void copiamapa(MAPA* destino, MAPA* origem){ 
-    destino->linhas = origem->linhas;
-    destino->colunas= origem->colunas;
-
-    alocamapa(destino);
-
-        for(int i = 0; i < origem->linhas; i++){
-            strcpy(destino->matriz[i], origem->matriz[i]);
-        }
-
-    }
-
-// Verifica se a posição do char no mapa é valida 
-// beaseada no tamanho da matriz. > podeandar()
-int ehvalida(MAPA* m, int x, int y){
-	if(x >= m->linhas){
-		return 0; 	
-	}
-
-	if(y >= m->colunas){
-		return 0;
-	}
-
-	return 1; 	 
-}	
-
-
-// Diz que a posição especificada na função é VAZIA. > podeandar().
-int ehvazia(MAPA* m, int x, int y){
-	return m->matriz[x][y] == VAZIO;
-}
-
-
-// Faz um char andar pelo mapa. 
-void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino) {
-	char personagem = m->matriz[xorigem][yorigem];
-	m->matriz[xdestino][ydestino] = personagem;
-	m->matriz[xorigem][yorigem] = VAZIO;
-
-}
-
-// Função que verifica se é uma parede.  > podeandar().
-int ehparede(MAPA* m, int x, int y){
-	return m->matriz[x][y] == PAREDE_HORIZONTAL 
-	|| m->matriz[x][y] == PAREDE_VERTICAL; 
-}
-
-// Função que verifica se é o caractére é um personagem > podeandar(). 
-int ehpersonagem(MAPA* m, char personagem, int x, int y){
-	return m->matriz[x][y] == personagem; 
-}
-
-
-// Função que verifca se o elemento pode andar. 
-int podeandar(MAPA* m, char personagem, int x, int y) {
-	return 
-		ehvalida(m, x, y) && 
-		ehvazia(m, x, y) &&
-		!ehpersonagem(m, personagem, x, y) &&
-		!ehparede(m, x, y);
-}
-
-
-// Lê o mapa da memória.
 void lemapa(MAPA* m) {
 	FILE* f;
 	f = fopen("mapa.txt", "r");
@@ -87,23 +15,30 @@ void lemapa(MAPA* m) {
 	alocamapa(m);
 	
 	for(int i = 0; i < m->linhas; i++) {
-		fscanf(f, "%s", m->matriz[i]); // Entender melhor o que essa linha faz. 
-	} 
+		fscanf(f, "%s", m->matriz[i]);
+	}
 
 	fclose(f);
 }
 
-
-// Aloca o mapa na memória.
 void alocamapa(MAPA* m) {
 	m->matriz = malloc(sizeof(char*) * m->linhas);
+
 	for(int i = 0; i < m->linhas; i++) {
 		m->matriz[i] = malloc(sizeof(char) * m->colunas + 1);
 	}
 }
 
+void copiamapa(MAPA* destino, MAPA* origem) {
+	destino->linhas = origem->linhas;
+	destino->colunas = origem->colunas;
+	alocamapa(destino);
+	for(int i = 0; i < origem->linhas; i++) {
+		strcpy(destino->matriz[i], origem->matriz[i]);
+	}
+}
 
-// Libera o mapa da memória. 
+
 void liberamapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		free(m->matriz[i]);
@@ -112,26 +47,61 @@ void liberamapa(MAPA* m) {
 	free(m->matriz);
 }
 
-
-// Função imprime o mapa no terminal.
 void imprimemapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		printf("%s\n", m->matriz[i]);
 	}
 }
 
+int encontramapa(MAPA* m, POSICAO* p, char c) {
 
-// Função encontra o char no mapa.
-int encontramapa(MAPA* m, POSICAO* p, char c){
-	
-	for(int i = 0; i < m->linhas; i++){
-        for(int j = 0; j < m->colunas; j++) {
-            if(m->matriz[i][j] == c) {
-                p->x = i;
-                p->y = j;
-                return 1;
-            }
-        }
-    }
-	return 0; 
+	for(int i = 0; i < m->linhas; i++) {
+		for(int j = 0; j < m->colunas; j++) {
+			if(m->matriz[i][j] == c) {
+				p->x = i;
+				p->y = j;
+				return 1;
+			}
+		}
+	}
+
+	// não encontramos!
+	return 0;
+}
+
+int podeandar(MAPA* m, char personagem, int x, int y) {
+	return 
+		ehvalida(m, x, y) && 
+		!ehparede(m, x, y) &&
+		!ehpersonagem(m, personagem, x, y);
+}
+
+int ehvalida(MAPA* m, int x, int y) {
+	if(x >= m->linhas) 
+		return 0;
+	if(y >= m->colunas) 
+		return 0;
+
+	return 1;	
+}
+
+int ehpersonagem(MAPA* m, char personagem, int x, int y) {
+	return
+		m->matriz[x][y] == personagem;
+}
+
+int ehparede(MAPA* m, int x, int y) {
+	return 
+		m->matriz[x][y] == PAREDE_VERTICAL ||
+		m->matriz[x][y] == PAREDE_HORIZONTAL;
+}
+
+
+void andanomapa(MAPA* m, int xorigem, int yorigem, 
+	int xdestino, int ydestino) {
+
+	char personagem = m->matriz[xorigem][yorigem];
+	m->matriz[xdestino][ydestino] = personagem;
+	m->matriz[xorigem][yorigem] = VAZIO;
+
 }

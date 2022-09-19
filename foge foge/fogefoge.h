@@ -1,6 +1,3 @@
-
-
-// Deifinindo caracteres para mexer o herói. 
 #define CIMA 'w'
 #define BAIXO 's'
 #define DIREITA 'd'
@@ -8,13 +5,7 @@
 
 int acabou();
 void move(char direcao);
-void fantasmas(); // void é uma função que não retorna nada.    
-
-// Definindo o que é considerado um caractére de direção. 
-int ehdirecao(char direcao){
-    return direcao == 'a' || direcao == 'w' || direcao == 's' || direcao == 'd';
-}
-
-// Função que define uma posição aleatóia para o fantasma ir. 
-int praondeofantasmavai(int xatual, int yatual, int* xdestino, int* ydestino);
-
+ 
+int ehdirecao(char direcao);
+void fantasmas();
+void explodepilula();
