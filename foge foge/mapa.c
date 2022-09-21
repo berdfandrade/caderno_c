@@ -3,7 +3,7 @@
 #include "mapa.h"
 #include <string.h>
 
-
+// Função que lê o mapa da memória.
 void lemapa(MAPA* m) {
 	FILE* f;
 	f = fopen("mapa.txt", "r");
@@ -22,6 +22,7 @@ void lemapa(MAPA* m) {
 	fclose(f);
 }
 
+// Fução que aloca o mapa na memória.
 void alocamapa(MAPA* m) {
 	m->matriz = malloc(sizeof(char*) * m->linhas);
 
@@ -30,6 +31,7 @@ void alocamapa(MAPA* m) {
 	}
 }
 
+// Função que copia o mapa para o FANTASMA se mover.
 void copiamapa(MAPA* destino, MAPA* origem) {
 	destino->linhas = origem->linhas;
 	destino->colunas = origem->colunas;
@@ -40,6 +42,7 @@ void copiamapa(MAPA* destino, MAPA* origem) {
 }
 
 
+// Função que libera o mapa da memória.
 void liberamapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		free(m->matriz[i]);
@@ -48,12 +51,15 @@ void liberamapa(MAPA* m) {
 	free(m->matriz);
 }
 
+
+// Função que imprime o mapa no terminal.
 void imprimemapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		printf("%s\n", m->matriz[i]);
 	}
 }
 
+// Função que encontra o char no mapa.
 int encontramapa(MAPA* m, POSICAO* p, char c) {
 
 	for(int i = 0; i < m->linhas; i++) {
@@ -65,11 +71,11 @@ int encontramapa(MAPA* m, POSICAO* p, char c) {
 			}
 		}
 	}
-
-	// não encontramos!
+ // NÃO ENCONTRAMOS
 	return 0;
 }
 
+// Função que verifica se o personagem pode andar naquele ponto do mapa. 
 int podeandar(MAPA* m, char personagem, int x, int y) {
 	return 
 		ehvalida(m, x, y) && 
@@ -77,6 +83,7 @@ int podeandar(MAPA* m, char personagem, int x, int y) {
 		!ehpersonagem(m, personagem, x, y);
 }
 
+// Função que verifica se a posição no mapa é valida.
 int ehvalida(MAPA* m, int x, int y) {
 	if(x >= m->linhas) 
 		return 0;
@@ -86,18 +93,20 @@ int ehvalida(MAPA* m, int x, int y) {
 	return 1;	
 }
 
+// Função que verifica se é o ponto no mapa é um personagem
 int ehpersonagem(MAPA* m, char personagem, int x, int y) {
 	return
 		m->matriz[x][y] == personagem;
 }
 
+// Função que verifica se o ponto no mapa é uma parede.
 int ehparede(MAPA* m, int x, int y) {
 	return 
 		m->matriz[x][y] == PAREDE_VERTICAL ||
 		m->matriz[x][y] == PAREDE_HORIZONTAL;
 }
 
-
+// Função que define como andar no mapa.
 void andanomapa(MAPA* m, int xorigem, int yorigem, 
 	int xdestino, int ydestino) {
 
@@ -106,3 +115,5 @@ void andanomapa(MAPA* m, int xorigem, int yorigem,
 	m->matriz[xorigem][yorigem] = VAZIO;
 
 }
+
+
