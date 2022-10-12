@@ -1,0 +1,4 @@
+Compilar com:
+
+g++ -o teste teste.c conio.o -lncurses
+
