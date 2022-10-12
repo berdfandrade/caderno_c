@@ -97,3 +97,72 @@ void eraseCar(){
         }
     }
 }
+
+int collision(){
+    if(enemyY[0] + 4 >= 23){
+        if(enemyx[0] + 4 - carPos >= 0 && enemyX[0] - 4 - carPos < 9){
+            return 1; 
+        }
+    }
+    return 0;
+}
+
+// Função de gameover 
+void gameover(){
+	system("cls");
+	cout<<endl;
+	cout<<"\t\t--------------------------"<<endl;
+	cout<<"\t\t-------- FIM DE JOGO -------"<<endl;
+	cout<<"\t\t--------------------------"<<endl<<endl;
+	cout<<"\t\tAperte qualquer tecla para voltar para o menu.";
+	getch();
+}
+
+void updateScore(){
+    gotoxy(WIN_WIDTH + 7, 5); cout << "Pontuação:  " << score << endl; 
+}
+
+void instructions(){
+    system("cls"); 
+    cout << "Instruções";
+    cout << "\n"
+}
+
+void instructions(){
+	
+	system("cls");
+	cout<<"Instruções";
+	cout<<"\n----------------";
+	cout<<"\n Evite carros se movendo para a esquerda ou direita!";
+	cout<<"\n\n Aperte 'a' para se mover apra a esquerda";
+	cout<<"\n Aperte 'd' para se mover apra a direita";
+	cout<<"\n Aperte 'ESC' para sair";
+	cout<<"\n\nAperte qualquer tecla para voltar ao menu";
+	getch();
+}
+
+void play(){
+    carPos = -1 + WIN_WIDTH/2;
+    score = 0;
+    enemyFlag[0] = 1;
+    enemyFlag[1] = 0;
+    enemyY[0] = enemyY[1] = 1;
+
+    system("cls");
+    drawBorder();
+    updateScore();
+    genEnemy(0);
+    genEnemy(1);
+
+	gotoxy(WIN_WIDTH + 7, 2);cout<<"Car Game";
+	gotoxy(WIN_WIDTH + 6, 4);cout<<"----------";
+	gotoxy(WIN_WIDTH + 6, 6);cout<<"----------";
+	gotoxy(WIN_WIDTH + 7, 12);cout<<"Control ";
+	gotoxy(WIN_WIDTH + 7, 13);cout<<"-------- ";
+	gotoxy(WIN_WIDTH + 2, 14);cout<<" Tecla A - Esquerda";
+	gotoxy(WIN_WIDTH + 2, 15);cout<<" Tecla D - Direita"; 
+
+    gotoxy(18, 5);cout<<"Aperte qualquer tecla para começar";
+	getch();
+	gotoxy(18, 5);cout<<"                      ";
+}
