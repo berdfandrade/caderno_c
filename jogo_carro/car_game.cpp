@@ -1,15 +1,14 @@
 
 
 #include <iostream>
-#include <conio.h>
-#include <dos.h>
+#include <curses.h>
 #include <time.h>
 
 #define SCREEN_WIDTH 90
 #define SCREEN_HEIGHT 26
 #define WIN_WIDTH 70
 
-using namespace st;
+using namespace std;
 
 HANDLE console = GetHandle(STD_OUTPUT_HANDLE);
 COORD CursorPosition;
@@ -154,13 +153,13 @@ void play(){
     genEnemy(0);
     genEnemy(1);
 
-	gotoxy(WIN_WIDTH + 7, 2);cout<<"Car Game";
-	gotoxy(WIN_WIDTH + 6, 4);cout<<"----------";
-	gotoxy(WIN_WIDTH + 6, 6);cout<<"----------";
-	gotoxy(WIN_WIDTH + 7, 12);cout<<"Control ";
-	gotoxy(WIN_WIDTH + 7, 13);cout<<"-------- ";
-	gotoxy(WIN_WIDTH + 2, 14);cout<<" Tecla A - Esquerda";
-	gotoxy(WIN_WIDTH + 2, 15);cout<<" Tecla D - Direita"; 
+	gotoxy(WIN_WIDTH + 7, 2); cout <<"Car Game";
+	gotoxy(WIN_WIDTH + 6, 4); cout <<"----------";
+	gotoxy(WIN_WIDTH + 6, 6); cout <<"----------";
+	gotoxy(WIN_WIDTH + 7, 12); cout <<"Control ";
+	gotoxy(WIN_WIDTH + 7, 13); cout <<"-------- ";
+	gotoxy(WIN_WIDTH + 2, 14); cout <<" Tecla A - Esquerda";
+	gotoxy(WIN_WIDTH + 2, 15); cout <<" Tecla D - Direita"; 
 
     gotoxy(18, 5);cout<<"Aperte qualquer tecla para começar";
 	getch();
