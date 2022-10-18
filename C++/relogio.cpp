@@ -164,5 +164,79 @@ int main(){
 	setcursor(0, 0);
 	srand((unsigned) time(NULL)); 
 
-	time_t now = time(0)
-}
+	time_t now = time(0);
+
+	char* dt = ctime(&now);
+	tm *lotm = localtime(&now);
+	dt = asctime(lotm);
+
+	int hour = lotm -> tm_hour; 
+	int min = lotm -> tm_min;
+	int sec = lotm -> tm_sec; 
+
+	int gap = 5; 
+	int posX; 
+	int posY = 8; 
+
+	while(1){
+		system("cls");
+		drawBorder(9, 4); 
+
+		posX = 15; 
+
+		if(khbit()){
+			char ch = getch();
+			if (ch == 27){
+				break; 
+			}
+			if (hour < 10 ){
+				printDigit(0, posX, posY);
+				printDigit(hour, posX+=gap, posY);
+			}
+			else {
+				printDigit(hour/10, posX, posY);
+				printDigit(hour % 10, posX+=gap, posY); 
+			}
+
+			printDigit(10, posX += gap, posY);
+
+			if(min < 10 ){
+				printDigit(0, posX += gap, posY);
+				printDigit(min, posX += gap, posY);
+			} else {
+				printDigit (min / 10 , posX += gap, posY);
+				printDigit (min % 10 , posX += gap, posY);
+			}
+			printDigit (10 , posX += gap, posY);
+
+			if (sec < 10){
+				printDigit (0 , posX += gap, posY);
+				printDigit (sec , posX += gap, posY);
+			} else {
+				printDigit (sec / 10 , posX += gap, posY);
+				printDigit (sec % 10 , posX += gap, posY);
+			}
+
+			sleep(950);
+			sec++;
+
+			if(sec >= 60){
+				sec = 0;
+				min++; // humm..... Segundo vira 0 e o minuto aumenta...
+			}
+
+			} if(min >= 60){
+				min = 0;
+				hour++; 
+			}
+
+			if(hour >= 24){
+				sec = 0;
+				min = 0;
+				hour = 0; 
+
+			}
+		}
+
+		return 0; 
+	}
