@@ -1,16 +1,21 @@
 
-#include<iostream>
+// Bubble sort em c++
+
+
+#include <iostream>
 using namespace std;
 int main ()
-{
-   int i, j,temp,pass=0;
-   int a[10] = {10,2,0,14,43,25,18,1,5,45};
 
-   cout <<"Input list ...\n";
+{
+   int i, j, temp, pass= 0; // Declarando múltiplas variáveis como 0 >>
+   int a[10] = {10, 2 ,0,14 ,43 ,88 ,18 ,1 ,5 ,2500};
+
+   cout <<"Lista de números:\n";
 
    for(i = 0; i<10; i++) {
       cout <<a[i]<<"\t"; // Passa pela lista, e imprime cada número que vai ser percorrido no array...
    }
+
 cout<<endl; // fim da linha
 
 for(i = 0; i<10; i++) { // Vai percorrer o array de 10 números
@@ -22,14 +27,17 @@ for(i = 0; i<10; i++) { // Vai percorrer o array de 10 números
          a[j] = temp; // temp vira o maior número... 
       }
    }
+
 pass++; // Pass vai aumentando de acordo com a quantidade de tentativas para fazer o sort
+
 }
 
-cout <<"Sorted Element List ...\n"; // imprime a lista que foi feita pelo bubble sort. 
+cout <<"Lista de elementos ordenada...\n"; // imprime a lista que foi feita pelo bubble sort. 
 for(i = 0; i<10; i++) {
    cout <<a[i]<<"\t";
+
 }
 
-cout<<"\nNumber of passes taken to sort the list:"<<pass<<endl; // pegamos o pass que foi a quantidade de vezes que o loop teve que repetir para conseguir fazer o sort. 
+cout<<"\nNúmero de loops que foi feito na lista:"<<pass<<endl; // pegamos o pass que foi a quantidade de vezes que o loop teve que repetir para conseguir fazer o sort. 
 return 0;
 }
