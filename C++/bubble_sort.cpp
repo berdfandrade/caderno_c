@@ -8,7 +8,7 @@ int main ()
 
 {
    int i, j, temp, pass= 0; // Declarando múltiplas variáveis como 0 >>
-   int a[10] = {10, 2 ,0,14 ,43 ,88 ,18 ,1 ,5 ,2500};
+   int a[10] = {10, 2 ,0, 14 ,43 ,88 ,18 ,1 ,5 ,2500};
 
    cout <<"Lista de números:\n";
 
