@@ -69,5 +69,3 @@ for(int i = 0; i < linhas; i++) {
 // agora podemos usar 'matriz' como uma matriz
 matriz[2][3] = 10;
 ```
-
-

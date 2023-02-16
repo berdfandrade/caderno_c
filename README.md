@@ -2,41 +2,28 @@
 
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/berdfandrade/caderno_c?color=%23A8B9CC&label=.&logo=C&logoColor=FFFFFF">
 
-Este é o meu caderno de exercícios e anotações referentes a linguagem de programação C. Aqui eu segui alguns tutoriais e incrementei funcionalidades específicas nos pequenos programas que eu desenvolvi. Alguns deles contém anotações. O principal projeto que desenvolvi foi o [jogo de adivinhação.](https://github.com/berdfandrade/jogo_de_adivinhar_c)
+Este é o meu caderno de exercícios e anotações referentes a linguagem de programação C. Aqui eu segui alguns tutoriais e incrementei funcionalidades específicas nos pequenos programas que eu desenvolvi. Alguns deles contém anotações. O principal projeto que desenvolvi foi o [jogo de adivinhação.](https://github.com/berdfandrade/jogo_de_adivinhar_c)A linguagem de programação C é uma das linguagens de programação mais populares e influentes de todos os tempos. Aqui estão alguns dos seus pontos fortes:
 
-A linguagem de programação C é uma das linguagens de programação mais populares e influentes de todos os tempos. Aqui estão alguns dos seus pontos fortes:
+- Eficiência: A linguagem C é conhecida por ser uma linguagem de programação de baixo nível, o que significa que ela fornece acesso direto ao hardware do computador. Por isso, ela é muito eficiente em termos de tempo de execução e uso de memória. Isso a torna uma escolha popular para desenvolver sistemas operacionais, drivers de dispositivos e outras aplicações de baixo nível.
 
-    Eficiência: A linguagem C é conhecida por ser uma linguagem de programação de baixo nível, o que significa que ela fornece acesso direto ao hardware do computador. Por isso, ela é muito eficiente em termos de tempo de execução e uso de memória. Isso a torna uma escolha popular para desenvolver sistemas operacionais, drivers de dispositivos e outras aplicações de baixo nível.
+- Portabilidade: A linguagem C é portátil, o que significa que os programas escritos em C podem ser compilados e executados em diferentes plataformas sem necessidade de grandes mudanças no código. Isso a torna uma escolha popular para o desenvolvimento de aplicativos que precisam ser executados em vários sistemas operacionais.
 
-    Portabilidade: A linguagem C é portátil, o que significa que os programas escritos em C podem ser compilados e executados em diferentes plataformas sem necessidade de grandes mudanças no código. Isso a torna uma escolha popular para o desenvolvimento de aplicativos que precisam ser executados em vários sistemas operacionais.
+- Flexibilidade: A linguagem C é uma linguagem de programação estruturada que permite que os desenvolvedores criem programas complexos de maneira organizada e bem estruturada. Além disso, ela fornece recursos para programação de baixo nível e de alto nível, o que significa que os desenvolvedores podem escolher a melhor abordagem para resolver um problema específico.
 
-    Flexibilidade: A linguagem C é uma linguagem de programação estruturada que permite que os desenvolvedores criem programas complexos de maneira organizada e bem estruturada. Além disso, ela fornece recursos para programação de baixo nível e de alto nível, o que significa que os desenvolvedores podem escolher a melhor abordagem para resolver um problema específico.
-
-    Grande comunidade: A linguagem C tem uma comunidade grande e ativa, com muitos recursos, fóruns e bibliotecas disponíveis para os desenvolvedores. Isso torna mais fácil encontrar soluções para problemas específicos e aprender com outros programadores experientes.
+- Grande comunidade: A linguagem C tem uma comunidade grande e ativa, com muitos recursos, fóruns e bibliotecas disponíveis para os desenvolvedores. Isso torna mais fácil encontrar soluções para problemas específicos e aprender com outros programadores experientes.
 
 Exemplos de código em C:
 
-    Hello World:
+1. Hello World:
 
-c
-
+```c
 #include <stdio.h>
 int main() {
    printf("Hello, World!");
    return 0;
 }
-
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int main() {
-    printf("******************************************\n");
-    printf("* Bem vindo ao nosso jogo de adivinhação *\n");
-    printf("******************************************\n");
-
 ```
+
+Este programa simplesmente imprime a mensagem "Hello, World!" na tela.
 
 
