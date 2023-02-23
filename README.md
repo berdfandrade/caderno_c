@@ -2,7 +2,12 @@
 
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/berdfandrade/caderno_c?color=%23A8B9CC&label=.&logo=C&logoColor=FFFFFF">
 
+<<<<<<< HEAD
 Este é o meu caderno de exercícios e anotações referentes a linguagem de programação C. Aqui eu segui alguns tutoriais e incrementei funcionalidades específicas nos pequenos programas que eu desenvolvi. Alguns deles contém anotações. O principal projeto que desenvolvi foi o [jogo de adivinhação.](https://github.com/berdfandrade/jogo_de_adivinhar_c) 
+=======
+Este é o meu caderno de exercícios e anotações referentes a linguagem de programação C. Aqui eu segui alguns tutoriais e incrementei funcionalidades específicas nos pequenos programas que eu desenvolvi. Alguns deles contém anotações. O principal projeto que desenvolvi foi o [jogo de adivinhação](https://github.com/berdfandrade/jogo_de_adivinhar_c) e também um jogo de [FOGE FOGE](https://github.com/berdfandrade/caderno_c/tree/main/foge%20foge) que é baseado em Pac-Man. 
+
+> > > > > > > d9b3563177df5caa914538da9c52ca6c7a1e9829
 
 A linguagem de programação C é uma das linguagens de programação mais populares e influentes de todos os tempos. Aqui estão alguns dos seus pontos fortes:
 
@@ -26,6 +31,29 @@ int main() {
 }
 ```
 
+2. Bubble Sort
+   
+   Aqui está um exemplo de implementação do algoritmo de ordenação Bubble Sort em C:
+
+```c
+void bubbleSort(int arr[], int n) {
+  int i, j;
+  for (i = 0; i < n-1; i++) {
+    for (j = 0; j < n-i-1; j++) {
+      if (arr[j] > arr[j+1]) {
+        // troca os elementos arr[j] e arr[j+1]
+        int temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+}
+```
+
+O código acima recebe um array arr com n elementos e o ordena em ordem crescente utilizando o algoritmo Bubble Sort. O funcionamento do Bubble Sort consiste em percorrer o array diversas vezes, comparando elementos adjacentes e trocando-os caso necessário, até que o array esteja completamente ordenado.
+
+<<<<<<< HEAD
  Este programa simplesmente imprime a mensagem "Hello, World!" na tela.
 
    2. Bubble Sort 
@@ -44,7 +72,6 @@ void bubbleSort(int arr[], int n) {
     }
   }
 }
-
 ```
 
 O código acima recebe um array `arr` com `n` 
@@ -52,5 +79,8 @@ elementos e o ordena em ordem crescente utilizando o algoritmo Bubble
 Sort. O funcionamento do Bubble Sort consiste em percorrer o array 
 diversas vezes, comparando elementos adjacentes e trocando-os caso 
 necessário, até que o array esteja completamente ordenado.
+=======
+
+> > > > > > > d9b3563177df5caa914538da9c52ca6c7a1e9829
 
 
