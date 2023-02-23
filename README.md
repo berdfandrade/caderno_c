@@ -2,7 +2,9 @@
 
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/berdfandrade/caderno_c?color=%23A8B9CC&label=.&logo=C&logoColor=FFFFFF">
 
-Este é o meu caderno de exercícios e anotações referentes a linguagem de programação C. Aqui eu segui alguns tutoriais e incrementei funcionalidades específicas nos pequenos programas que eu desenvolvi. Alguns deles contém anotações. O principal projeto que desenvolvi foi o [jogo de adivinhação.](https://github.com/berdfandrade/jogo_de_adivinhar_c)A linguagem de programação C é uma das linguagens de programação mais populares e influentes de todos os tempos. Aqui estão alguns dos seus pontos fortes:
+Este é o meu caderno de exercícios e anotações referentes a linguagem de programação C. Aqui eu segui alguns tutoriais e incrementei funcionalidades específicas nos pequenos programas que eu desenvolvi. Alguns deles contém anotações. O principal projeto que desenvolvi foi o [jogo de adivinhação.](https://github.com/berdfandrade/jogo_de_adivinhar_c) 
+
+A linguagem de programação C é uma das linguagens de programação mais populares e influentes de todos os tempos. Aqui estão alguns dos seus pontos fortes:
 
 - Eficiência: A linguagem C é conhecida por ser uma linguagem de programação de baixo nível, o que significa que ela fornece acesso direto ao hardware do computador. Por isso, ela é muito eficiente em termos de tempo de execução e uso de memória. Isso a torna uma escolha popular para desenvolver sistemas operacionais, drivers de dispositivos e outras aplicações de baixo nível.
 
@@ -24,6 +26,31 @@ int main() {
 }
 ```
 
-Este programa simplesmente imprime a mensagem "Hello, World!" na tela.
+ Este programa simplesmente imprime a mensagem "Hello, World!" na tela.
+
+   2. Bubble Sort 
+
+```c
+void bubbleSort(int arr[], int n) {
+  int i, j;
+  for (i = 0; i < n-1; i++) {
+    for (j = 0; j < n-i-1; j++) {
+      if (arr[j] > arr[j+1]) {
+        // troca os elementos arr[j] e arr[j+1]
+        int temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+}
+
+```
+
+O código acima recebe um array `arr` com `n` 
+elementos e o ordena em ordem crescente utilizando o algoritmo Bubble 
+Sort. O funcionamento do Bubble Sort consiste em percorrer o array 
+diversas vezes, comparando elementos adjacentes e trocando-os caso 
+necessário, até que o array esteja completamente ordenado.
 
 
